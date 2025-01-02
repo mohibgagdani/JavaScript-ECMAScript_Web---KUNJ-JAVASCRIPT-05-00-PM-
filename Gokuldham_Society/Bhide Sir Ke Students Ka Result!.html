@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bhide Sir Ke Students Ka Result</title>
+</head>
+<body>
+    <h1>Bhide Sir Ke Students Ka Result</h1>
+    <div id="result"></div>
+
+    <script>
+        
+        let marks = 85;
+
+        let grade;
+        if (marks >= 90) {
+            grade = "A1 - Topper of the Class";
+        } else if (marks >= 75) {
+            grade = "A2 - Good Effort";
+        } else if (marks >= 50) {
+            grade = "B - Need Improvement";
+        } else {
+            grade = "Fail - Padho Beta Padho";
+        }
+
+        document.getElementById("result").innerHTML = "Marks: " + marks + "<br>Grade: " + grade;
+    </script>
+</body>
+</html>

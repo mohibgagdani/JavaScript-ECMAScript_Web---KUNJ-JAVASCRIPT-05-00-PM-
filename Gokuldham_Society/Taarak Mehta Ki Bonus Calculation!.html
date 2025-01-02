@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Slip - Taarak Mehta Ki Bonus Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .salary-slip {
+            border: 1px solid #000;
+            padding: 20px;
+            width: 300px;
+        }
+        .salary-slip h2 {
+            text-align: center;
+        }
+        .salary-slip p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="salary-slip">
+        <h2>Salary Slip</h2>
+        <p id="basic-salary"></p>
+        <p id="hra"></p>
+        <p id="da"></p>
+        <p id="gross-salary"></p>
+        <p id="tax"></p>
+        <p id="net-salary"></p>
+    </div>
+
+    <script>
+      
+        const basicSalary = 50000; 
+        const hra = basicSalary * 0.20; 
+        const da = basicSalary * 0.10; 
+        const grossSalary = basicSalary + hra + da;
+        const tax = grossSalary * 0.05; 
+        const netSalary = grossSalary - tax;
+
+        document.getElementById('basic-salary').textContent = "Basic Salary: " +basicSalary;
+        document.getElementById('hra').textContent = "HRA: " +hra;
+        document.getElementById('da').textContent = "DA: " +da;
+        document.getElementById('gross-salary').textContent = "Gross Salary: " +grossSalary;
+        document.getElementById('tax').textContent = "Tax: " +tax;
+        document.getElementById('net-salary').textContent = "Net Salary: " +netSalary;
+    </script>
+</body>
+</html>

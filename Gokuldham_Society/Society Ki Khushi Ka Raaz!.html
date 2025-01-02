@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society Ki Khushi Ka Raaz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="message" id="grocery-message"></div>
+    <div class="message" id="shaadi-message"></div>
+    <div class="message" id="salary-message"></div>
+
+    <script>
+       
+        const groceryBill = 1200; 
+        if (groceryBill > 1000) {
+            document.getElementById('grocery-message').textContent = "Dayaben ki Garba Shopping Successful!";
+        }
+
+        const popatlalShaadiFund = 60000; 
+        if (popatlalShaadiFund > 50000) {
+            document.getElementById('shaadi-message').textContent = "Shaadi fix kar lo, Popatlal!";
+        }
+
+        const basicSalary = 50000;
+        const hra = basicSalary * 0.20; 
+        const da = basicSalary * 0.10;
+        const grossSalary = basicSalary + hra + da;
+        const tax = grossSalary * 0.05; 
+        const netSalary = grossSalary - tax;
+        const savings = netSalary - 30000; 
+        
+        if (savings > 0) {
+            document.getElementById('salary-message').textContent = "Taarak Mehta ka Balance Perfect Hai!";
+        }
+    </script>
+</body>
+</html>
