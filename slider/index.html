@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.slider {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    display: none;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+</style>
+<body>
+    <div class="slider">
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <div class="slides">
+            <img src="https://media.istockphoto.com/id/1132462484/photo/pearl-structure-nautilus-symmetry-cross-section-inside-pattern-nature-background.jpg?s=1024x1024&w=is&k=20&c=2sWuw4rv61crFKT3mU11VL0d33UTOKf4fdVhcFnBQLc=" class="slide" style="display: block;">
+            <img src="https://media.istockphoto.com/id/477518531/photo/russian-nesting-dolls.jpg?s=1024x1024&w=is&k=20&c=XyL3dLkhldpcrnEMt8bWX27ZvAVjEwK1DJFxDDdyoPg=" class="slide">
+            <img src="https://media.istockphoto.com/id/92100986/photo/pair-of-red-sneakers-in-a-row-of-black-dress-shoes.jpg?s=1024x1024&w=is&k=20&c=X0oVVtr-wJP6CdVJVhYKOJmI4vXHf_KafqwALfxSXik=" class="slide">
+        </div>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script src="script.js"></script>
+</html>

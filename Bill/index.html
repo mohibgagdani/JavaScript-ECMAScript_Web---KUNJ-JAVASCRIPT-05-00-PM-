@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Billing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>R&W MOBILE SHOP</h2>
+    <input type="text" id="brand" placeholder="Brand Name">
+    <input type="text" id="model" placeholder="Model Name">
+    <input type="text" id="imei" placeholder="IMEI Number">
+    <input type="number" id="price" placeholder="Price">
+    <div>
+    <button onclick="addToBill()">Add</button>
+</div>
+    
+    <h3>Bill Details</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>IMEI</th>
+                <th>Price</th>
+                <th>GST (18%)</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="bill"></tbody>
+    </table>
+</body>
+ <script src="script.js"> </script>
+</html>

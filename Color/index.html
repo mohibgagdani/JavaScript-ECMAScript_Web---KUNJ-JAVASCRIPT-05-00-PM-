@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLOR</title>
+</head>
+<style>
+    body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 1s ease;
+}
+
+.container {
+    text-align: center;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: yellow;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+</style>
+<body>
+    <div class="container">
+        <button id="change-bg-btn">Change Background</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+    document.getElementById('change-bg-btn').addEventListener('click', changeBackground);
+
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+function changeBackground() {
+    const color1 = getRandomColor();
+    const color2 = getRandomColor();
+    document.body.style.background = `linear-gradient(45deg, ${color1}, ${color2})`;
+}
+</script>
+</html>
