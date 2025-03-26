@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #fb1500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #fb1500;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .movieCard {
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .moviePoster {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="userMovie" placeholder="Enter movie name">
+        <button onclick="searchMovies()">Search</button>
+    </div>
+    <div class="content"></div>
+
+    <script>
+        function searchMovies() {
+            let userMovie = document.getElementById("userMovie").value;
+            let content = document.querySelector(".content");
+            content.innerHTML = "";
+
+            fetch(`http://www.omdbapi.com/?s=${userMovie}&apikey=559bbcbd`)
+                .then((r) => r.json())
+                .then((d) => {
+                    if (d.Search) {
+                        d.Search.forEach((e) => {
+                            let movieCard = document.createElement("div");
+                            let moviePoster = document.createElement("img");
+                            let moviePosterURL = e.Poster;
+
+                            movieCard.setAttribute("class", "movieCard");
+                            moviePoster.setAttribute("class", "moviePoster");
+                            moviePoster.setAttribute("src", moviePosterURL);
+
+                            movieCard.appendChild(moviePoster);
+                            content.appendChild(movieCard);
+                        });
+                    } else {
+                        content.innerHTML = "No movies found!";
+                    }
+                })
+                .catch((err) => {
+                    console.error("Error fetching data:", err);
+                    content.innerHTML = "Error fetching data!";
+                });
+        }
+    </script>
+</body>
+</html>

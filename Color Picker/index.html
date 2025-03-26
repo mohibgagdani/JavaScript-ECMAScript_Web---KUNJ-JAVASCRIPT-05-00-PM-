@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Picker</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100vh;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-Q12VzuNm_xEKGoL7ChO8DoaFabNpo9yAyw&s);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bg button {
+            width: 250px;
+            height: 40px;
+            background-color: white;
+            color: black;
+            font-size: 17px;
+        }
+
+        .bg p{
+            color: #fff;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <button class="colorCode">Color Picker</button>
+        <button class="copyCode">Copy Code</button>
+        <p class="result"></p>
+        <span class="message"></span>
+    </div>
+</body>
+<script>
+
+    let colorCode = document.querySelector(".colorCode");
+    let copyCode = document.querySelector(".copyCode");
+    let result = document.querySelector(".result");
+    let message = document.querySelector(".message");
+
+    colorCode.addEventListener("click", async () => {
+        if(!window.EyeDropper)
+        {
+            alert("Browser does not support EyeDropper");
+        }
+
+        let code = new EyeDropper();
+
+        try 
+        {
+
+            let colorPicker = await code.open();
+            result.innerText = colorPicker.sRGBHex;
+
+        }
+        catch (error) {
+            result.innerText = "color not selected";
+        }
+    });
+
+    copyCode.addEventListener("click", function () {
+
+        let codeCopy = result.innerText;
+
+        navigator.clipboard.writeText(codeCopy);
+
+        if (codeCopy == "") {
+            message.innerText = "Not Coppied";
+        }
+        else {
+            message.innerText = "Coppied!!";
+        }
+    });
+
+</script>
+</html>
